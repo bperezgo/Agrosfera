@@ -41,7 +41,7 @@ class LactationModel():
         delta_V / Vpreg <= ( 2*(tL / t_max) + (tL / t_max)**2 )**(-1)
         delta_V : V_max - (V0 - VD)
         """
-        
+
 
     def cowVolume(self, actual_time):
         # Revisar _final_time, debe tomarse el valor donde termina la lactancia

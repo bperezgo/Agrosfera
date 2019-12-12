@@ -11,25 +11,24 @@ class SimulationGrid():
         self.ID = ID
         self.cows = cows
         self.properties = None
-        # functions that belong to each parameter
-        self.functions = None
+
+        self._initial_time_params = None
+        self._actual_cycle = None
+        self._max_cycles = None
 
     def setProperties(self, generator):
-        properties = []
-        properties.append(generator._max_volume[0:-1])
-        properties.append(generator._max_time[0:-1])
-        properties.append(generator._pregnant_volume[0:-1])
-        properties.append(generator._lactant_time[0:-1])
-        properties.append(generator._dry_time[0:-1])
-        properties.append(generator._pregnant_time[0:-1])
+        properties = generator._rvs
         self.properties = properties
 
-    def setFunctions(self, generator):
-        functions = []
-        functions.append(generator._distributions[generator._max_volume[-1]])
-        functions.append(generator._distributions[generator._max_time[-1]])
-        functions.append(generator._distributions[generator._pregnant_volume[-1]])
-        functions.append(generator._distributions[generator._lactant_time[-1]])
-        functions.append(generator._distributions[generator._dry_time[-1]])
-        functions.append(generator._distributions[generator._pregnant_time[-1]])
-        self.functions = functions
+    def setControlParameters(self, generator):
+        """
+        Control parameters. i.e. Initial conditions  of the simulation, and Parameters
+        possible to be manipulated
+
+        This method is intended to initializise for all iterations in Monte Carlo
+        simulation, becasuse avoid initialize generator in each iteration. So, these
+        parameters wont modified
+        """
+        self._initial_time_params = generator._initial_time
+        self._actual_cycle = generator._actual_cycle
+        self._max_cycles = generator._max_cycles
