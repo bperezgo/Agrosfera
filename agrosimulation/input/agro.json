@@ -24,22 +24,23 @@
               }
             },
             "tL-tmax-ratio": {
-              "distribution": "GAMMA",
+              "distribution": "NORMAL",
               "parameters": {
-                "shape": 2.1256,
-                "scale": 2.0
+                "mean": 5.0,
+                "std": 1.0
               }
             },
             "lactant-time": {
-              "distribution": "POISSON",
+              "distribution": "WEIBULL",
               "parameters": {
-                "lambda": 254.08
+                "shape": 4.24,
+                "scale": 275.44
               }
             },
             "dry-time": {
-              "distribution": "POISSON",
+              "distribution": "CONSTANT",
               "parameters": {
-                "lambda": 60
+                "value": 60
               }
             }
           }

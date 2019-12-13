@@ -45,6 +45,9 @@ def _weibullAtributes(param):
     value = param[1]*value
     return value
 
+def _constantAtribute(param):
+    return param[0]
+
 class Generator():
 
     def __init__(self, path):
@@ -60,7 +63,8 @@ class Generator():
                                 "LOGISTIC": _logisticAtributes,
                                 "POISSON": _poissonAtributes,
                                 "GAMMA": _gamAtributes,
-                                "WEIBULL": _weibullAtributes
+                                "WEIBULL": _weibullAtributes,
+                                "CONSTANT": _constantAtribute
                       }
         self._indexes = {
                             "EXPONENTIAL": {"lambda": 0},
@@ -68,7 +72,8 @@ class Generator():
                             "LOGISTIC": {"mean": 0, "scale": 1},
                             "POISSON": {"lambda": 0},
                             "GAMMA": {"shape": 0, "scale": 1},
-                            "WEIBULL": {"shape": 0, "scale": 1}
+                            "WEIBULL": {"shape": 0, "scale": 1},
+                            "CONSTANT": {"value": 0}
         }
         # NOTE: lactant_time and dry time must be the penultimate and last in the list
         # of RVS, respectively
