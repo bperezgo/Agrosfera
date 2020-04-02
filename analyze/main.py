@@ -29,7 +29,7 @@ def main():
         results_temp = pd.read_csv(files[i], index_col = False).set_index('Time (day)')
         summary.append(results_temp.apply(np.sum))
         results = results + results_temp
-    print(summary)
+    #print(summary)
     summary_df = pd.DataFrame(summary)
     results = results / total_files
 
@@ -61,9 +61,9 @@ def main():
     print(f.summary())
     print(f.get_best())
     plt.show()
-    plt.figure(figsize = [8, 6])
-    f.hist()
-    plt.show()
+    #plt.figure(figsize = [8, 6])
+    #f.hist()
+    #plt.show()
 
 if __name__ == '__main__':
     main()
